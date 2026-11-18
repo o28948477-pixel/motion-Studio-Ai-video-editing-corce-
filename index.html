@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="AI video editing course: Claude Code, Remotion, Runway, Pika, CapCut. Prompt library, commands and step-by-step guide."><meta name="theme-color" content="#050a18"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E%F0%9F%8E%AC%3C/text%3E%3C/svg%3E"><title>মোশন স্টুডিও এআই ভিডিও এডিটিং কোর্স</title>
+<style>
+:root{--bg:#050a18;--card:#0a1329;--tx:#eaf2ff;--mut:#8fa3c7;--ac:#2b8cff;--bd:#17305e;--code:#060c1d;--codetx:#dbe9ff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:dark}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 56px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--bg);border-bottom:1px solid var(--bd);display:flex;gap:6px;overflow-x:auto;padding:10px 14px;scrollbar-width:none}
+nav a{white-space:nowrap;text-decoration:none;color:var(--mut);font-size:14px;padding:6px 12px;border-radius:99px;border:1px solid var(--bd)}
+nav a:hover{color:var(--ac);border-color:var(--ac)}
+main{max-width:1100px;margin:0 auto;padding:0 16px 60px}
+.hero{padding:44px 0 24px}
+.hero h1{font-size:clamp(28px,6vw,44px);line-height:1.15;margin:0 0 10px;letter-spacing:-.02em}
+.hero h1 span{color:var(--ac)}
+.hero p{color:var(--mut);margin:0;max-width:60ch}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:22px}
+.step{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.step b{color:var(--ac);font-size:13px;display:block}
+.step span{font-size:14px;color:var(--mut)}
+section{padding-top:36px}
+h2{font-size:24px;margin:0 0 6px}
+h2 small{color:var(--ac);font-size:14px;display:block;font-weight:600;letter-spacing:.04em;margin-bottom:2px}
+p.lead{color:var(--mut);margin:0 0 16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:14px 16px}
+.card h3{margin:0 0 4px;font-size:16px}
+.card p{margin:0;color:var(--mut);font-size:14px}
+ul.l{margin:0;padding-left:20px}
+ul.l li{margin:4px 0}
+.tw{overflow-x:auto;border:1px solid var(--bd);border-radius:12px;background:var(--card)}
+table{border-collapse:collapse;width:100%;min-width:420px;font-size:14px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--bd);vertical-align:top}
+th{color:var(--mut);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.05em}
+tr:last-child td{border-bottom:0}
+details{background:var(--card);border:1px solid var(--bd);border-radius:12px;margin-bottom:10px;overflow:hidden}
+summary{cursor:pointer;padding:13px 16px;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:10px;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--ac);font-size:20px;line-height:1}
+details[open] summary::after{content:"\2212"}
+summary em{font-style:normal;font-weight:400;color:var(--mut);font-size:13px;display:block}
+.pb{padding:0 12px 12px}
+pre{margin:0;background:var(--code);color:var(--codetx);border-radius:10px;padding:14px;font:13px/1.55 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;white-space:pre-wrap;word-break:break-word}
+.note{font-size:13px;color:var(--mut);margin:8px 4px 0}
+.cp{margin-top:8px;background:linear-gradient(90deg,#1565ff,#22c3ff);color:#fff;border:0;border-radius:8px;padding:9px 16px;font-size:14px;font-weight:600;cursor:pointer;min-height:40px}
+.cp.ok{background:#1fa05a}
+.badge{display:none}
+.badge{display:inline-block;font-size:12px;padding:2px 8px;border-radius:99px;background:var(--ac);color:#fff;margin-right:6px}
+.chk label{display:flex;gap:10px;align-items:flex-start;padding:9px 12px;background:var(--card);border:1px solid var(--bd);border-radius:10px;margin-bottom:8px;cursor:pointer}
+.chk input{margin-top:5px;accent-color:var(--ac);width:18px;height:18px;flex:none}
+.prog{height:8px;background:var(--bd);border-radius:9px;overflow:hidden;margin:6px 0 14px}
+.prog i{display:block;height:100%;width:0;background:var(--ac);transition:width .25s}
+a.lk{display:block;padding:11px 14px;background:var(--card);border:1px solid var(--bd);border-radius:10px;margin-bottom:8px;color:var(--tx);text-decoration:none}
+a.lk small{display:block;color:var(--mut);word-break:break-all}
+a.lk:hover{border-color:var(--ac)}
+body{background:radial-gradient(900px 480px at 85% -5%,#0c2a68 0,transparent 62%),radial-gradient(600px 400px at 0 30%,#07204d55 0,transparent 70%),var(--bg)}
+.card,.step,details,.tw,.chk label,a.lk,.cc,.cats,.wf div,.tools a{box-shadow:0 0 22px rgba(43,140,255,.09)}
+nav{align-items:center;background:rgba(5,10,24,.92);backdrop-filter:blur(8px)}
+nav a.logo{display:flex;align-items:center;gap:8px;border:0;padding:0 12px 0 0;color:var(--tx);font-weight:700;font-size:15px}
+.lm{font-size:28px;font-weight:800;line-height:1;background:linear-gradient(135deg,#22c3ff,#1565ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero{display:grid;grid-template-columns:1.25fr .75fr;gap:20px;align-items:center;padding:36px 0 18px}
+.hero h1{background:linear-gradient(90deg,#fff 10%,#5fb0ff 65%,#8dff3a);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:clamp(30px,6vw,52px)}
+.pill{display:inline-block;border:1px solid var(--bd);border-radius:99px;padding:5px 14px;font-size:13px;margin-bottom:14px;color:var(--mut)}
+.btns2{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:99px;font-weight:600;text-decoration:none;color:#fff;background:linear-gradient(90deg,#1565ff,#22c3ff);box-shadow:0 0 26px rgba(34,160,255,.45)}
+.btn.o{background:transparent;border:1px solid #2b8cff;box-shadow:none}
+.orb{width:100%;max-width:300px;justify-self:center;filter:drop-shadow(0 0 30px rgba(34,160,255,.55))}
+@media(max-width:720px){.hero{grid-template-columns:1fr}.orb{order:-1;max-width:190px}}
+.cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:6px;border:1px solid var(--bd);border-radius:16px;padding:8px;margin-top:6px;background:var(--card)}
+.cats a{text-align:center;padding:10px 6px;border-radius:10px;color:var(--tx);text-decoration:none;font-size:13px}
+.cats a:hover{background:#12306a}
+.cats b{display:block;font-size:20px}
+.cc{position:relative;display:block;background:linear-gradient(160deg,#0d1f45,var(--card));border:1px solid var(--bd);border-radius:14px;padding:16px;color:var(--tx);text-decoration:none;min-height:150px}
+.cc h3{margin:30px 0 2px;font-size:17px}.cc p{margin:0 0 12px;color:var(--mut);font-size:13px}
+.cc .go{color:#22c3ff;font-weight:600;font-size:14px}
+.tag{position:absolute;top:12px;right:12px;font-size:11px;font-weight:700;padding:3px 10px;border-radius:99px;color:#fff}
+.t1{background:#e8861a}.t2{background:#1fa05a}.t3{background:#d23a5c}.t4{background:#4b5b82}
+.cc .ic{font-size:30px;position:absolute;top:10px;left:14px}
+.wf{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
+.wf div{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:14px}
+.wf i{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:#1565ff;font-style:normal;font-weight:700;margin-bottom:6px}
+.wf b{display:block}.wf span{font-size:13px;color:var(--mut)}
+.tools{display:flex;flex-wrap:wrap;gap:10px}
+.tools a{padding:10px 16px;border:1px solid var(--bd);border-radius:12px;background:var(--card);color:var(--tx);text-decoration:none;font-weight:600;font-size:14px}
+.tools a:hover{border-color:var(--ac)}
+.up{display:flex;justify-content:space-between;gap:10px;padding:11px 14px;border-bottom:1px solid var(--bd);font-size:14px}.up:last-child{border:0}.up span{color:var(--mut);white-space:nowrap}
+.vid{width:100%;max-height:70vh;border-radius:16px;border:1px solid var(--bd);background:#000;box-shadow:0 0 30px rgba(43,140,255,.25)}
+.steps2 details p,.steps2 details ul,.steps2 details ol{margin:0 16px 14px;font-size:14px;color:var(--mut)}
+.steps2 details li{margin:3px 0}.steps2 code{color:#7fd0ff}
+.pdfc{display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.pdfc b{display:block}.pdfc span{font-size:13px;color:var(--mut);word-break:break-all}
+.mv{position:relative;aspect-ratio:16/9;border-radius:16px;overflow:hidden;border:1px solid var(--bd);background:radial-gradient(circle at 70% 15%,#0f3a8a,#050a18 65%);box-shadow:0 0 30px rgba(43,140,255,.25)}
+.stage{position:absolute;inset:0 0 34px;display:grid;place-items:center;text-align:center;padding:3%}
+.stage.paused *{animation-play-state:paused!important}
+.sc{width:100%}
+.big{font-size:clamp(22px,6.5vw,56px);font-weight:800;line-height:1.15}
+.big.g{background:linear-gradient(90deg,#5fb0ff,#8dff3a);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sm{font-size:clamp(11px,2.2vw,18px);color:var(--mut);margin-top:8px}
+@keyframes up{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes pop{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:none}}
+@keyframes ring{to{stroke-dashoffset:0}}
+.a1{animation:up .6s both}.a2{animation:up .6s .5s both}.a3{animation:up .6s 1.1s both}
+.chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:14px}
+.chips span{padding:8px 16px;border:1px solid #2b8cff;border-radius:99px;background:#0b1b3f;font-weight:600;font-size:clamp(11px,2.6vw,20px);animation:pop .5s both}
+.stp{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:12px}
+.stp div{min-width:22%;padding:8px;border:1px solid var(--bd);border-radius:10px;background:#0a1329;animation:pop .5s both}
+.stp b{color:#22c3ff;display:block;font-size:clamp(10px,2vw,14px)}.stp span{font-size:clamp(10px,2vw,15px)}
+.mvc{position:absolute;left:0;right:0;bottom:0;display:flex;gap:10px;align-items:center;padding:4px 12px;background:linear-gradient(transparent,#000a)}
+.mvc button{background:none;border:0;color:#fff;font-size:18px;cursor:pointer;min-width:34px;min-height:30px}
+.bar{flex:1;height:4px;background:#ffffff33;border-radius:9px;overflow:hidden}.bar i{display:block;height:100%;width:0;background:#22c3ff}
+.av2{width:clamp(50px,12vw,90px);height:clamp(50px,12vw,90px);border-radius:50%;object-fit:cover;border:3px solid var(--ac);animation:pop .6s both}
+.dl{display:inline-block;text-decoration:none}
+#sp{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,#1565ff,#22c3ff,#8dff3a);z-index:50}
+nav a.on{color:#fff;border-color:var(--ac);background:#10306b}
+#top2{position:fixed;right:16px;bottom:16px;width:44px;height:44px;border-radius:50%;border:1px solid var(--bd);background:var(--card);color:#fff;font-size:18px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;transform:translateY(8px);z-index:20}
+#top2.show{opacity:1;pointer-events:auto;transform:none}
+a,button,summary{-webkit-tap-highlight-color:transparent}
+a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible{outline:2px solid #22c3ff;outline-offset:2px}
+details{transition:border-color .2s}details[open]{border-color:var(--ac)}
+.btn,.cc,.tools a,.card{transition:transform .2s,border-color .2s,box-shadow .2s}
+.btn:hover,.cc:hover{transform:translateY(-2px)}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-delay:0s!important;transition:none!important;scroll-behavior:auto!important}}
+.ft{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;border-top:1px solid var(--bd);padding-top:20px;margin-top:40px}
+.ft nav{position:static;border:0;padding:0;background:none;backdrop-filter:none}
+.prof{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+.avatar{width:76px;height:76px;border-radius:50%;object-fit:cover;border:3px solid var(--ac);background:var(--card);flex:none}
+.co{font-weight:700;color:var(--ac);font-size:17px}
+.by{color:var(--mut);font-size:14px}
+.fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:20;background:var(--ac);color:#fff;border:0;border-radius:99px;padding:12px 18px;font-weight:600;font-size:14px;box-shadow:0 4px 14px rgba(0,0,0,.25);cursor:pointer}
+.ov{position:fixed;inset:0;z-index:30;background:rgba(0,0,0,.55);display:none;align-items:flex-end;justify-content:center}
+.ov.on{display:flex}
+.pn{background:var(--bg);color:var(--tx);width:100%;max-width:520px;max-height:92%;overflow:auto;border-radius:18px 18px 0 0;padding:18px 18px calc(18px + env(safe-area-inset-bottom,0px))}
+.pn h3{margin:0 0 12px}
+.pn label{display:block;font-size:13px;color:var(--mut);margin:12px 0 4px}
+.pn input[type=text]{width:100%;padding:11px 12px;border:1px solid var(--bd);border-radius:10px;background:var(--card);color:var(--tx);font:inherit}
+.pn .row{display:flex;gap:10px;align-items:center}
+.pn .row img{width:64px;height:64px;border-radius:50%;object-fit:cover;border:2px solid var(--ac)}
+.pn .btns{display:flex;gap:10px;margin-top:18px}
+.pn .btns button{flex:1;padding:12px;border-radius:10px;border:1px solid var(--bd);background:var(--card);color:var(--tx);font:inherit;font-weight:600;cursor:pointer}
+.pn .btns .pri{background:var(--ac);color:#fff;border-color:var(--ac)}
+.pn .msg{font-size:13px;color:var(--mut);margin-top:10px;min-height:18px}
+footer{margin-top:40px;color:var(--mut);font-size:13px;text-align:center}
+</style>
+</head>
+<body>
+<div id="sp"></div>
+<nav><a class="logo" href="#top"><span class="lm">M</span>Motion Studio</a><a href="#intro" id="navIntro">Intro</a><a href="#courses">Courses</a><a href="#guide">Guide</a><a href="#prompts">Prompt Library</a><a href="#commands">Commands</a><a href="#workflow">Workflow</a><a href="#tools">Tools</a><a href="#updates">Updates</a><a href="#pdfs">PDF Download</a><a data-fb href="https://www.facebook.com/share/1FW7uzrP2a/" target="_blank" rel="noopener">Facebook</a></nav>
+<main>
+<div class="hero" id="top">
+<div>
+<span class="pill">⚡ Learn • Innovate • Build</span>
+<div class="prof"><img id="avatar" class="avatar" alt="Profile photo"><div><div class="co" id="coName"></div><div class="by">Created by <b id="authName"></b></div></div></div>
+<h1 id="courseName"></h1>
+<p>Claude Code + Remotion + Runway / Pika + CapCut diye AI video banano shikho: ki prompt dibe, kon command chalabe, kivabe export korbe, step by step.</p>
+<div class="btns2"><a class="btn" href="#courses">Start Learning →</a><a class="btn o" href="#intro" id="introBtn">▶ Watch Intro</a><a class="btn o" href="#prompts">Prompt Library</a><a class="btn o" data-fb href="https://www.facebook.com/share/1FW7uzrP2a/" target="_blank" rel="noopener">Facebook Page</a></div>
+</div>
+<svg class="orb" viewBox="0 0 240 240" aria-hidden="true"><defs><radialGradient id="og" cx="40%" cy="35%"><stop offset="0" stop-color="#7fd0ff"/><stop offset=".5" stop-color="#1565ff"/><stop offset="1" stop-color="#061233"/></radialGradient></defs><circle cx="120" cy="120" r="92" fill="url(#og)"/><g fill="none" stroke="#bfe6ff" stroke-opacity=".45"><ellipse cx="120" cy="120" rx="92" ry="34"/><ellipse cx="120" cy="120" rx="40" ry="92"/><circle cx="120" cy="120" r="108" stroke-dasharray="3 7"/></g><text x="120" y="134" text-anchor="middle" font-size="44" font-weight="700" fill="#fff" font-family="system-ui,sans-serif">M</text></svg>
+</div>
+<section id="intro"><h2><small>INTRO</small>Intro Video</h2>
+<div class="mv" id="mv"><div class="stage" id="stage" data-dyn></div><div class="mvc"><button id="mvP" aria-label="Play/Pause">⏸</button><div class="bar"><i id="mvBar"></i></div><button id="mvR" aria-label="Replay">↻</button></div></div>
+<div id="introBox" data-dyn style="margin-top:14px"></div></section>
+<div class="cats"><a href="#courses"><b>🧠</b>AI &amp; Tech Resources</a><a href="#commands"><b>💻</b>Coding &amp; Development</a><a href="#plan"><b>🎬</b>Video Creation &amp; Editing</a><a href="#overview"><b>📘</b>ICT Tutorials &amp; Guides</a><a href="#tools"><b>🛠</b>Free Tools</a></div>
+<section id="courses">
+<h2><small>COURSES</small>Our Courses</h2>
+<div class="grid">
+<a class="cc" href="#prompts"><span class="tag t1">Popular</span><span class="ic">🧠</span><h3>AI &amp; Prompt Engineering</h3><p>ChatGPT, Claude &amp; More</p><span class="go">Start Course →</span></a>
+<a class="cc" href="#overview"><span class="tag t3">Trending</span><span class="ic">🎬</span><h3>AI Video Editing</h3><p>Remotion, Runway, CapCut</p><span class="go">Start Course →</span></a>
+<div class="cc"><span class="tag t4">Coming soon</span><span class="ic">🐍</span><h3>Python Programming</h3><p>From Zero to Hero</p></div>
+<div class="cc"><span class="tag t4">Coming soon</span><span class="ic">&lt;/&gt;</span><h3>Web Development</h3><p>HTML, CSS, JavaScript</p></div>
+</div>
+</section>
+<section id="guide" class="steps2">
+<h2><small>GUIDE</small>Step-by-step Guide</h2>
+<p class="lead">PDF-er shob step ek jaygay. UI-er button/menu update hole position ba label change hote pare.</p>
+<details><summary>Kon workflow choose korbe?</summary><ul><li><b>Motion graphics heavy:</b> Remotion + Claude Code</li><li><b>Cinematic footage heavy:</b> Runway / Pika</li><li><b>Hybrid workflow:</b> duita mila-ye (recommended)</li></ul><p>Age storyboard banao, tarpor production shuru koro. Recommended setup: Remotion = motion graphics engine; Claude Code = coding assistant; Runway/Pika = generated footage; CapCut/Premiere Pro = final edit and audio. Flow: Preview &gt; Render &gt; Quality check &gt; Publish.</p></details>
+<details><summary>Claude Code open kora</summary><ol><li>Claude Desktop open koro</li><li>Code tab choose koro</li><li>Project folder select koro</li><li>New session start koro</li><li>Prompt likho</li></ol><p>Terminal diye korle official setup instruction follow koro (Commands section dekho). Claude Code-ke project folder-er bhitore theke start koro, jate se oi project-er file read/edit korte pare.</p></details>
+<details><summary>Remotion project setup</summary><ol><li>Project folder create koro</li><li>Terminal open koro</li><li>Setup command run koro</li><li><code>npm run dev</code> chalao</li><li>Browser preview check koro</li></ol><p>Command-er kaj: prothom line project create kore; <code>cd</code> project folder-e jay; <code>remotion skills add</code> coding agent-er jonno Remotion guidance add kore; <code>npm run dev</code> local preview server start kore.</p></details>
+<details><summary>Remotion Studio: preview ebong check</summary><ol><li>Preview / Player open koro</li><li>Composition choose koro</li><li>Frame ebong timing check koro</li><li>Project file edit koro</li><li>Final video render koro</li></ol><p>Browser preview-te video play kore typography, timing, safe margin, transition, image crop ebong spelling check koro. Final render-er age full preview ekbar dekhe nao.</p></details>
+<details><summary>Runway / Pika: text-to-video</summary><p>Runway/Pika open koro, Text-to-Video choose koro, ekta scene prompt paste koro, available settings-e 9:16 select koro, Generate, tarpor clip review kore save koro. Ei tools Remotion-er replacement noy; choto cinematic clip Remotion ba CapCut timeline-e use korbe.</p></details>
+<details><summary>Runway / Pika: image-to-video</summary><ol><li>Video creation tool open koro</li><li>Reference image upload koro</li><li>Motion prompt likho</li><li>Available settings choose koro</li><li>Generate kore review koro</li></ol></details>
+<details><summary>Voiceover, music ebong sound effect</summary><ul><li>Age script final koro, tarpor voiceover record/generate koro.</li><li>Voiceover-er pause mark kore scene duration set koro.</li><li>Music narration-er niche low volume-e rakho; important dialogue clear thakte hobe.</li><li>Sound effect transition, title reveal ebong impact moment-e; every cut-e noy.</li></ul></details>
+<details><summary>CapCut / Premiere Pro final editing</summary><p>CapCut-e New Project, rendered clips import, timeline-e scene order set, voiceover add, subtitle add, music/SFX add, logo/CTA add, export.</p><ul><li>Voiceover-ke timeline-er main track rakho; visual clip tar sathe sync koro.</li><li>Subtitle readable rakho: short line, clear contrast, safe margin.</li><li>Colour grading-e shob clip-er look consistent rakho.</li><li>Logo, CTA, music fade-out ebong final frame check koro.</li></ul></details>
+</section>
+<section id="overview">
+<h2><small>01</small>Kon tool ki kaj kore</h2>
+<p class="lead">Duita alada category: precise text/chart/UI animation-er jonno Remotion, cinematic clip-er jonno Runway/Pika. Duita mila-le hybrid workflow.</p>
+<div class="grid">
+<div class="card"><h3>Claude Code</h3><p>Project-er code create, edit, debug kore. Nijey video editor noy; Remotion-er moddhe animation code likhe.</p></div>
+<div class="card"><h3>Remotion</h3><p>React-based video framework. Text animation, chart, timeline, logo reveal ebong exact timing-er jonno best.</p></div>
+<div class="card"><h3>Runway / Pika</h3><p>Text-to-video ba image-to-video diye cinematic footage. Egulo Remotion-er replacement noy.</p></div>
+<div class="card"><h3>CapCut / Premiere</h3><p>Clip, Remotion render, voiceover, music, subtitle ebong final export ek jaygay combine.</p></div>
+</div>
+<p class="note">Phone-only hole: Remotion setup practical noy. Runway/Pika browser tool + CapCut mobile diye start koro.</p>
+
+<h3 style="margin:24px 0 8px">Claude-ke ki information dibe?</h3>
+<div class="card"><ul class="l">
+<li><b>Topic:</b> video kon bishoy niye</li>
+<li><b>Goal:</b> viewer ki feel ba learn korbe</li>
+<li><b>Audience:</b> kar jonno (age, bhasha)</li>
+<li><b>Duration:</b> 30, 60 na 90 sec</li>
+<li><b>Platform:</b> Facebook Reels, TikTok, YouTube Shorts</li>
+<li><b>Visual style:</b> dark cinematic, documentary, funny, fantasy</li>
+<li><b>Output:</b> script, storyboard, scene prompt, motion graphics, editing plan</li>
+</ul></div>
+</section>
+
+<section id="plan">
+<h2><small>02</small>90-second video planning</h2>
+<p class="lead">Ekbare generate korbe na. 12-15 ta scene-e vag koro, protita scene age theke likhe nao.</p>
+<div class="tw"><table>
+<tr><th>Time</th><th>Section</th><th>Visual idea</th></tr>
+<tr><td>0-5s</td><td>Hook</td><td>Strong question + title reveal</td></tr>
+<tr><td>5-18s</td><td>Problem</td><td>Cinematic B-roll / emotional shot</td></tr>
+<tr><td>18-33s</td><td>Context</td><td>Facts, numbers, timeline</td></tr>
+<tr><td>33-55s</td><td>Build-up</td><td>Kinetic typography + scene changes</td></tr>
+<tr><td>55-78s</td><td>Main message</td><td>Strongest visual + narration</td></tr>
+<tr><td>78-90s</td><td>Ending</td><td>Takeaway + logo + CTA</td></tr>
+</table></div>
+<p class="note">Voiceover final korar por scene timing set koro. Pause ebong dramatic delivery-r jonno jayga rekho.</p>
+</section>
+
+<section id="prompts">
+<h2><small>03</small>Copy-paste Prompts</h2>
+<p class="lead">Protita prompt-er niche "Kothay dibe" deya ache. [BRACKET] ongsho nijer information diye replace koro.</p>
+<div id="plist" data-dyn></div>
+</section>
+
+<section id="commands">
+<h2><small>04</small>Terminal Commands</h2>
+<p class="lead">Computer-er jonno (Windows PowerShell, macOS Terminal, Linux). Claude chat-e command likhle seta nijer theke run hoy na.</p>
+<div id="clist" data-dyn></div>
+<div class="card" style="margin-top:12px"><h3>Kothay ki</h3><p>Install/project command = Terminal. Natural-language instruction = Claude Code session. Preview = browser. Render command = Terminal.</p></div>
+</section>
+
+<section id="sequence">
+<h2><small>05</small>Kon step-e ki use korbe</h2>
+<div class="tw"><table>
+<tr><th>#</th><th>Kothay</th><th>Ki paste/run korbe</th></tr>
+<tr><td>1</td><td>Claude Chat</td><td>Project Brief Prompt</td></tr>
+<tr><td>2</td><td>Claude Chat</td><td>Storyboard Prompt</td></tr>
+<tr><td>3</td><td>Claude Chat</td><td>Correction Prompt (dorkar hole)</td></tr>
+<tr><td>4</td><td>Claude Chat</td><td>Scene video prompt likhar instruction</td></tr>
+<tr><td>5</td><td>Runway / Pika</td><td>Ekbare ekta scene-er video prompt</td></tr>
+<tr><td>6</td><td>Terminal</td><td>Install + project create command</td></tr>
+<tr><td>7</td><td>Claude Code</td><td>Project structure prompt</td></tr>
+<tr><td>8</td><td>Claude Code</td><td>Scene 1, tarpor next-scene prompt</td></tr>
+<tr><td>9</td><td>Terminal</td><td>Preview ebong render command</td></tr>
+<tr><td>10</td><td>CapCut</td><td>Editing checklist + final export</td></tr>
+</table></div>
+
+<h3 style="margin:24px 0 8px">AI clip quality check</h3>
+<div class="card"><ul class="l">
+<li>Face, hands, clothing, background consistency dekho.</li>
+<li>Flicker, unwanted object, text artifact thakle regenerate koro.</li>
+<li>Same character hole same reference image + description use koro.</li>
+<li>90s video-r jonno 4-6 ta strong clip-o enough; baki scene Remotion typography diye.</li>
+</ul></div>
+
+<h3 style="margin:24px 0 8px">Common problems</h3>
+<div class="card"><ul class="l">
+<li>Claude wrong code likhle exact error paste kore specific fix chao.</li>
+<li>Preview blank hole terminal error, composition registration, project setup check koro.</li>
+<li>Render slow hole short test render diye assets/dependencies check koro.</li>
+<li>Sound: music narration-er niche low volume-e; SFX shudhu transition/title/impact-e, every cut-e noy.</li>
+</ul></div>
+</section>
+
+<section id="checklist">
+<h2><small>06</small>Rules ebong Export Checklist</h2>
+<p class="lead">Tick koro; progress dekhabe (page reload korle reset hobe).</p>
+<div class="prog"><i id="bar"></i></div>
+<div class="chk" id="chk" data-dyn></div>
+<h3 style="margin:22px 0 8px">Important rules</h3>
+<div class="card"><ul class="l">
+<li>Ekbare 15 scene build koro na; ekta build kore approve koro.</li>
+<li>Claude-ke password, API key ba private credential dio na.</li>
+<li>Terminal command run korar age tar kaj bujhe nao.</li>
+<li>Claude Code file delete/overwrite korte chaile review koro.</li>
+<li>Music, font, footage ebong image-er license check koro.</li>
+</ul></div>
+</section>
+
+<section id="workflow">
+<h2><small>WORKFLOW</small>Complete Workflow</h2>
+<p class="lead">Step-by-step guide follow kore amazing content banao.</p>
+<div class="wf"><div><i>1</i><b>Plan Your Idea</b><span>Topic choose kore content plan koro</span></div><div><i>2</i><b>Use the Right Tools</b><span>Claude, Runway, CapCut ebong aro</span></div><div><i>3</i><b>Generate &amp; Edit</b><span>Visual banao, video edit koro</span></div><div><i>4</i><b>Add Effects</b><span>Music, transition ebong subtitle</span></div><div><i>5</i><b>Export &amp; Share</b><span>YouTube, TikTok, Facebook-e publish</span></div></div>
+</section>
+<section id="tools">
+<h2><small>TOOLS</small>Tools &amp; Resources</h2>
+<div class="tools"><a href="https://chatgpt.com" target="_blank" rel="noopener">ChatGPT</a><a href="https://claude.ai" target="_blank" rel="noopener">Claude</a><a href="https://runway.com" target="_blank" rel="noopener">Runway</a><a href="https://pika.art" target="_blank" rel="noopener">Pika</a><a href="https://www.capcut.com" target="_blank" rel="noopener">CapCut</a><a href="https://code.visualstudio.com" target="_blank" rel="noopener">VS Code</a><a href="https://github.com" target="_blank" rel="noopener">GitHub</a></div>
+</section>
+<section id="updates">
+<h2><small>UPDATES</small>Latest Updates</h2>
+<div class="card" style="padding:0"><div class="up">New AI Video Workflow Guide Added!<span>Nov 18, 2026</span></div><div class="up">Prompt Library: Claude prompts ready<span>Nov 18, 2026</span></div></div>
+</section>
+<section id="pdfs">
+<h2><small>DOWNLOAD</small>PDF Download</h2>
+<p class="lead">Original PDF guide duita ekhan theke download korte paro.</p>
+<div class="grid">
+<div class="card pdfc"><div><b>Claude Prompt + Command Playbook</b><span>Claude_Prompt_Command_Visual_Playbook_Banglish.pdf</span></div><a class="cp dl" href="pdfs/Claude_Prompt_Command_Visual_Playbook_Banglish.pdf" download>⬇ Download PDF</a></div>
+<div class="card pdfc"><div><b>AI Motion Graphics Workflow</b><span>Advanced_AI_Motion_Graphics_Workflow_Banglish_Visual_Guide.pdf</span></div><a class="cp dl" href="pdfs/Advanced_AI_Motion_Graphics_Workflow_Banglish_Visual_Guide.pdf" download>⬇ Download PDF</a></div>
+</div>
+</section>
+<section id="links">
+<h2><small>07</small>Official links</h2>
+<div id="llist" data-dyn></div>
+<p class="note">UI-er button/menu update hole position ba label change hote pare. Option na pele official help link dekho.</p>
+</section>
+<div class="ft"><a class="logo" href="#top" style="display:flex;align-items:center;gap:8px;color:var(--tx);text-decoration:none;font-weight:700"><span class="lm">M</span>Motion Studio</a><span class="note">Learn • Innovate • Build a Better Future</span><a class="btn" data-fb href="https://www.facebook.com/share/1FW7uzrP2a/" target="_blank" rel="noopener">Follow us on Facebook</a></div>
+<button id="top2" aria-label="Back to top">↑</button>
+<footer id="foot">Updated 18 November 2026</footer>
+</main>
+<script src="config.js"></script>
+<script>
+var P=[
+["1. Project Brief","Claude Chat, New Chat-e paste koro","You are my professional short-form documentary director,\nscriptwriter and motion graphics planner.\n\nTOPIC: [YOUR TOPIC]\nMAIN MESSAGE: [WHAT VIEWER SHOULD FEEL OR LEARN]\nAUDIENCE: [TARGET AUDIENCE]\nLANGUAGE: Bengali voiceover; Banglish instructions\nDURATION: 90 seconds\nPLATFORM: Facebook Reels / YouTube Shorts\nFORMAT: vertical 9:16, 1080x1920, 30 FPS\nSTYLE: premium cinematic documentary\nCOLOURS: charcoal black, white, warm orange\nMOOD: emotional, inspiring and suspenseful\n\nDELIVER:\n1. Strong opening hook\n2. Full voiceover script with timestamps\n3. 12-15 scene storyboard\n4. On-screen text for every scene\n5. Visual and camera direction\n6. AI video prompts where needed\n7. Remotion motion-graphics instructions\n8. Sound and music direction\n9. CapCut editing plan\n\nFirst analyze the brief. Ask only essential questions.\nDo not write code or generate video prompts until I approve."],
+["2. Storyboard","Brief approve hole, eki Claude chat-e","Using the approved project brief, create a production-ready\nstoryboard for a 90-second vertical documentary.\nCreate 12-15 scenes. For EACH scene include:\n- Scene number and exact start/end timestamp\n- Duration in seconds\n- Voiceover line\n- On-screen text (maximum 6 words)\n- Visual description\n- Camera movement\n- Transition to next scene\n- Sound effect / music cue\n- Tool choice: Remotion, Runway, Pika or CapCut\n- Required asset: image, video, logo or icon\n\nTotal duration must be exactly 90 seconds.\nMake the first 3 seconds attention-grabbing.\nAvoid repeating the same visual.\nShow the result as a clear table.\nDo not write code yet."],
+["3. Storyboard Correction","Storyboard bhalo na hole","Improve the storyboard. The current version feels\n[TOO SLOW / TOO GENERIC / TOO BUSY].\nMake the hook stronger, remove repeated visuals,\nkeep narration natural and make every scene visually distinct.\nPreserve the exact 90-second duration.\nShow only the revised storyboard."],
+["4. Scene video prompts (Runway / Pika)","Claude chat-e likho, tarpor ekta ekta kore Runway/Pika-te paste koro","For every approved storyboard scene, write a separate\nAI text-to-video prompt.\nInclude:\n- Main subject and action\n- Location and background\n- Time of day and lighting\n- Camera shot and movement\n- Mood and visual style\n- Motion details\n- Continuity requirements\n- Things that must NOT appear\n\nKeep each prompt specific and realistic.\nDo not put text, subtitles, logos or watermarks\ninside generated footage unless requested.\nNumber every scene prompt."],
+["5. Example text-to-video prompt","Runway/Pika: Text-to-Video, 9:16, Generate","A lone young person standing on an empty road at dawn,\nfacing a distant warm light. Slow cinematic dolly-in,\ngentle wind moving the jacket, subtle atmospheric haze,\ndark charcoal surroundings with warm orange sunrise,\nphotorealistic documentary cinematography,\nnatural body movement, vertical 9:16 composition.\nNo text, no logo, no watermark, no extra people."],
+["6. Image-to-video prompt","Reference image upload kore paste koro","Slow cinematic push-in toward the subject.\nKeep the subject's appearance consistent and natural.\nOnly the coat and nearby leaves move gently in the wind.\nSubtle atmospheric fog, realistic motion, no new objects.\nVertical 9:16 composition."],
+["7. Claude Code: first session prompt","Project folder-e claude chalanor por","Read the project files and inspect the installed Remotion version.\nDo not edit anything yet.\nExplain:\n1. Which files control the video composition?\n2. Where should scene components go?\n3. How do I preview the video?\n4. Which command renders the final MP4?\nPropose a clean folder structure for my 90-second\nvertical documentary. Wait for my approval before editing."],
+["8A. Project structure","Claude Code","Create a clean Remotion structure for this 90-second video.\nUse reusable components for titles, subtitles, transitions,\nbackgrounds and lower-thirds. Keep all text editable.\nUse placeholders if assets are missing; do not invent file paths.\nFirst show the file plan and wait for approval."],
+["8B. Build Scene 1","Claude Code","Build Scene 1 only from the approved storyboard.\nUse the installed Remotion version and current APIs.\nComposition: 1080x1920, 30 FPS.\nUse frame-based deterministic animation.\nKeep text inside mobile safe margins.\nMatch the approved palette and typography.\nIf an asset is missing, use a clearly named placeholder.\nTell me which files changed and how to preview Scene 1.\nDo not build Scene 2."],
+["8C. Next scene","Claude Code","Scene 1 is approved. Build Scene 2 only.\nMatch typography, palette, spacing, transitions and motion style.\nDo not modify approved scenes unless required.\nAfter building, explain how to preview Scene 2."],
+["8D. Fix an error","Claude Code","I got this error:\n[PASTE FULL ERROR MESSAGE]\n\nInspect the relevant files and identify the root cause.\nMake the smallest safe fix. Do not rewrite unrelated components.\nTell me what changed and the exact command to verify it."],
+["8E. Quality review","Claude Code","Review the full video for spelling, text overflow,\nmobile safe margins, scene timing, animation smoothness,\nconsistent fonts and colours, missing assets and audio sync.\nDo not change anything yet. Give me a numbered issue list\nwith suggested fixes."],
+["9. Render command check","Claude Code, render-er age","Check the installed Remotion CLI version and list available\ncompositions. Give me the exact render command for my\n90-second vertical composition. Do not guess the composition ID.\nThen render an H.264 MP4 to a clearly named output file."],
+["10. Voiceover direction","Voice tool-e, script final hole","Create a natural Bengali documentary narration.\nVoice: deep, clear and emotionally controlled.\nPace: medium, with meaningful pauses.\nPronunciation must be clear.\nEmphasize key phrases gently.\nDo not remove or rewrite any word from my script."],
+["11. CapCut editing checklist","Claude Chat","Create a CapCut editing checklist for my approved 90-second video.\nUse the scene timestamps. Tell me:\n- Which clip goes at each timestamp\n- Where to place voiceover\n- When to add subtitles\n- Where music should rise or fade\n- Which transitions and sound effects to use\n- How to end with my logo and call-to-action\nKeep instructions beginner-friendly and numbered."],
+["Storyboard (alternate prompt)","Claude Chat, jodi shohoj version chao","You are an expert Bengali documentary scriptwriter and motion designer.\nTopic: [write your topic]\nDuration: 90 seconds\nLanguage: Bengali\nFormat: vertical 9:16, 1080x1920, 30 FPS\n\nCreate a 12-15 scene storyboard.\nFor every scene include:\n- duration and timestamp\n- voiceover\n- on-screen text\n- visual description\n- camera movement\n- motion graphics\n- sound effects\n- recommended tool: Remotion or AI video generator\n\nDo not write code yet. First show me the full plan."],
+["Claude Code: first build prompt","Claude Code, plan + Scene 1","Inspect this Remotion project and its installed version first.\nI need a 90-second Bengali documentary video.\nFormat: vertical 9:16, 1080x1920, 30 FPS.\nFirst create a plan for 12-15 scenes.\nThen build Scene 1 only.\nUse frame-based animation and reusable components.\nKeep all text editable and inside mobile safe areas.\nDo not build the next scene until I approve Scene 1.\nIf assets are missing, use placeholders and list them.\nNever invent file paths or download links."],
+["Next scene prompt (alternate)","Claude Code","Scene 1 is approved. Now build Scene 2.\nKeep the same typography, colour palette, spacing,\ntransitions and animation language.\nChange only this scene's content and visual.\nDo not unnecessarily modify Scene 1."],
+["Master prompt (5 phase)","Ekta prompt-e puro project","You are my senior motion designer, video editor and Remotion engineer.\n\nPROJECT\nTopic: [YOUR TOPIC]\nDuration: 90 seconds\nLanguage: Bengali\nFormat: vertical 9:16, 1080x1920, 30 FPS\nStyle: cinematic documentary, premium typography,\ndark charcoal, white text, warm orange accent.\n\nPHASE 1 - PLAN\nCreate 12-15 scenes. For each scene specify duration,\nnarration, on-screen text, visual, camera movement,\nmotion graphics, sound cue and recommended tool.\nDo not code yet.\n\nPHASE 2 - ASSETS\nList every image, video, logo, font and sound file required.\nUse placeholders for missing assets. Never invent file paths.\n\nPHASE 3 - BUILD\nUse Remotion for typography, charts, titles, UI and transitions.\nUse supplied AI-generated clips as footage where useful.\nUse frame-based deterministic animation.\nKeep text editable and maintain one visual style.\n\nPHASE 4 - REVIEW\nBuild one scene at a time and preview it.\nCheck spelling, text overflow, safe margins, timing,\ncontinuity, frame rate and audio sync.\nWait for my approval before the next scene.\n\nPHASE 5 - EXPORT\nRender final H.264 MP4 at 1080x1920 and 30 FPS.\nReport exact output path and remaining issues."]
+];
+var C=[
+["Windows: Claude Code install","PowerShell","irm https://claude.ai/install.ps1 | iex"],
+["macOS / Linux: Claude Code install","Terminal","curl -fsSL https://claude.ai/install.sh | bash"],
+["Installation check","Terminal","claude --version"],
+["Remotion project create","Terminal","npx create-video@latest --yes --blank my-video\ncd my-video"],
+["Coding agent guidance add","Project folder-er terminal","npx remotion skills add"],
+["Preview start","Project folder-er terminal, tarpor browser","npm run dev"],
+["Claude Code start","Project folder theke","cd my-video\nclaude"],
+["Render (entry point)","Composition ID Claude Code-ke diye confirm koro","npx remotion render"]
+];
+var L=[["Claude Code setup","https://docs.anthropic.com/en/docs/claude-code/getting-started"],["Claude Code overview","https://code.claude.com/docs/en/overview"],["Claude Code first day","https://support.claude.com/en/articles/14552382-your-first-day-in-claude-code"],["Remotion coding agents","https://www.remotion.dev/docs/ai/coding-agents"],["Remotion AI","https://www.remotion.dev/docs/ai"],["Remotion AI","https://www.remotion.dev/docs/ai"],["Remotion Studio","https://www.remotion.dev/docs/studio"],["Remotion render","https://www.remotion.dev/docs/render"],["Runway image-to-video","https://runway.com/resources/image-to-video-guide"],["Pika Video Studio","https://creation.pika.art/apps/create-video"],["Runway","https://runway.com/"],["Pika","https://pika.art/"],["CapCut","https://www.capcut.com/"]];
+var K=["Video duration close to 90 seconds","9:16 crop and safe area correct","All Bangla words and spelling checked","Voiceover and scene timing synchronized","Music does not cover narration","Logo, CTA and final frame correct","H.264 MP4, 1080x1920, 30 FPS","Commercial-use and copyright terms checked"];
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")}
+function block(t,s,b,i){return '<details><summary><span>'+esc(t)+'<em>'+esc(s)+'</em></span></summary><div class="pb"><pre id="'+i+'">'+esc(b)+'</pre><button class="cp" data-t="'+i+'">Copy</button></div></details>'}
+document.getElementById("plist").innerHTML=P.map(function(p,i){return block(p[0],p[1],p[2],"p"+i)}).join("");
+document.getElementById("clist").innerHTML=C.map(function(p,i){return block(p[0],p[1],p[2],"c"+i)}).join("");
+document.getElementById("llist").innerHTML=L.map(function(l){return '<a class="lk" href="'+l[1]+'" target="_blank" rel="noopener">'+l[0]+'<small>'+l[1]+'</small></a>'}).join("");
+document.getElementById("chk").innerHTML=K.map(function(k){return '<label><input type="checkbox"><span>'+k+'</span></label>'}).join("");
+function prog(){var a=document.querySelectorAll("#chk input"),n=0;a.forEach(function(x){if(x.checked)n++});document.getElementById("bar").style.width=(n/a.length*100)+"%"}
+document.getElementById("chk").addEventListener("change",prog);
+document.addEventListener("click",function(e){
+var b=e.target.closest(".cp");if(!b)return;
+var txt=document.getElementById(b.dataset.t).textContent;
+function done(){b.textContent="Copied \u2713";b.classList.add("ok");setTimeout(function(){b.textContent="Copy";b.classList.remove("ok")},1600)}
+function fb(){try{var t=document.createElement("textarea");t.value=txt;t.style.position="fixed";t.style.opacity="0";document.body.appendChild(t);t.select();document.execCommand("copy");document.body.removeChild(t);done()}catch(x){b.textContent="Select text manually"}}
+try{navigator.clipboard.writeText(txt).then(done,fb)}catch(x){fb()}
+});
+
+var CFG=window.SITE||{};
+function $(i){return document.getElementById(i)}
+function apply(){$("courseName").textContent=CFG.course;$("authName").textContent=CFG.author;$("coName").textContent=CFG.company;$("avatar").src=CFG.photo;$("foot").textContent="Updated 18 November 2026 \u00b7 "+CFG.company+" \u00b7 "+CFG.author;document.title=CFG.course;document.querySelectorAll("[data-fb]").forEach(function(a){if(CFG.facebook)a.href=CFG.facebook});intro()}
+function esc2(t){return String(t).replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;")}
+function intro(){var h="";if(CFG.video)h+='<video class="vid" controls playsinline preload="metadata" src="'+esc2(CFG.video)+'"></video>';if(CFG.vlink)h+='<p><a class="btn" href="'+esc2(CFG.vlink)+'" target="_blank" rel="noopener">\u25b6 Watch Intro Video</a></p>';$("introBox").innerHTML=h;}
+
+apply();
+
+var MV={el:0,on:true,last:0,idx:-1,seen:0,D:[3500,4000,5000,3500,5000]};MV.T=MV.D.reduce(function(a,b){return a+b},0);
+function mvHTML(i){var c=esc2(CFG.course),a=esc2(CFG.author),o=esc2(CFG.company),ph=esc2(CFG.photo),h="font-size:clamp(16px,4.2vw,36px)";return [
+'<div class="sc"><div class="big a1">AI diye Video</div><div class="big g a2">banano shikho</div><div class="sm a3">Prompt · Motion · Edit · Publish</div></div>',
+'<div class="sc"><div class="big a1" style="'+h+'">4 ta power tool</div><div class="chips"><span style="animation-delay:.4s">Claude Code</span><span style="animation-delay:.9s">Remotion</span><span style="animation-delay:1.4s">Runway / Pika</span><span style="animation-delay:1.9s">CapCut</span></div></div>',
+'<div class="sc"><div class="big a1" style="'+h+'">Complete Workflow</div><div class="stp"><div style="animation-delay:.4s"><b>1 PLAN</b><span>Script + storyboard</span></div><div style="animation-delay:1s"><b>2 DESIGN</b><span>Claude Code</span></div><div style="animation-delay:1.6s"><b>3 ANIMATE</b><span>Remotion / AI</span></div><div style="animation-delay:2.2s"><b>4 FINISH</b><span>Edit + export</span></div></div></div>',
+'<div class="sc"><svg width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="#17305e" stroke-width="8"/><circle cx="50" cy="50" r="40" fill="none" stroke="#22c3ff" stroke-width="8" stroke-linecap="round" stroke-dasharray="251" stroke-dashoffset="251" transform="rotate(-90 50 50)" style="animation:ring 2.2s .2s forwards"/><text x="50" y="58" text-anchor="middle" fill="#fff" font-size="26" font-weight="700">90s</text></svg><div class="big a2" style="'+h+'">12-15 scene</div><div class="sm a3">Ekta ekta scene build koro, approve koro</div></div>',
+'<div class="sc"><img class="av2" src="'+ph+'" alt=""><div class="big g a2" style="'+h+';margin-top:10px">'+c+'</div><div class="sm a3">Created by '+a+' · '+o+'</div></div>'][i]}
+function mvTick(ts){if(MV.on){MV.el+=Math.min(ts-MV.last,100);if(MV.el>=MV.T)MV.el=0}MV.last=ts;var e=MV.el,i=0;while(i<MV.D.length-1&&e>=MV.D[i]){e-=MV.D[i];i++}
+if(i!==MV.idx){MV.idx=i;$("stage").innerHTML=mvHTML(i)}
+$("mvBar").style.width=(MV.el/MV.T*100)+"%";requestAnimationFrame(mvTick)}
+$("mvP").onclick=function(){MV.on=!MV.on;$("stage").classList.toggle("paused",!MV.on);this.textContent=MV.on?"\u23f8":"\u25b6"};
+$("mvR").onclick=function(){MV.el=0;MV.idx=-1;MV.on=true;$("stage").classList.remove("paused");$("mvP").textContent="\u23f8"};
+try{new IntersectionObserver(function(en){if(en[0].isIntersecting&&!MV.seen){MV.seen=1;MV.el=0;MV.idx=-1}},{threshold:.4}).observe($("mv"))}catch(e){}
+requestAnimationFrame(mvTick);
+
+var SP=$("sp"),T2=$("top2"),NL=[].slice.call(document.querySelectorAll("nav a[href^='#']")).filter(function(a){return a.getAttribute("href").length>1&&$(a.getAttribute("href").slice(1))});
+var tk=0;function onS(){if(tk)return;tk=1;requestAnimationFrame(function(){tk=0;var h=document.documentElement,m=h.scrollHeight-h.clientHeight;SP.style.width=(m>0?h.scrollTop/m*100:0)+"%";T2.classList.toggle("show",h.scrollTop>700);var cur=null;NL.forEach(function(a){var e=$(a.getAttribute("href").slice(1));if(e.getBoundingClientRect().top<140)cur=a});NL.forEach(function(a){a.classList.toggle("on",a===cur)});if(cur&&cur.scrollIntoView)try{cur.parentNode.scrollTo({left:cur.offsetLeft-60,behavior:"smooth"})}catch(x){}})}
+addEventListener("scroll",onS,{passive:true});onS();
+T2.onclick=function(){scrollTo({top:0,behavior:"smooth"})};
+</script>
+</body>
+</html>
